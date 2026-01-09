@@ -3,8 +3,8 @@ ko:
   hello: "Hello world"
 
   title: '제대로웹 카페'
+
   language: '언어'
-  theme : '테마'
   korean: '한국어'
   chineses: '汉语'
   english: 'english'

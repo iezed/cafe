@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # 관리자
   scope 'admin', module: 'admin', as: 'admin' do
-    get '/' => 'orders#new'
+    get '/' => 'orders#index', as: 'admin_root'
     get 'branches/switch/:id', :to=>'branches#switch', as: 'branch_switch'
 
     resources :admins

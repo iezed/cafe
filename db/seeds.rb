@@ -44,15 +44,15 @@ User.create!(id: 2, branch_id: 1, email: 'user2@jedaeroweb.co.kr', password: 'a1
 User.create!(id: 3, branch_id: 1, email: 'user3@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자3', phone: '333-3333', registration_date: '2020-11-23')
 User.create!(id: 4, branch_id: 1, email: 'user4@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '444-4444', registration_date: '2020-11-23')
 
-User.create!(id: 5, branch_id: 2, email: 'user5@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '555-5555', registration_date: '2020-11-23')
-User.create!(id: 6, branch_id: 2, email: 'user6@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '666-6666', registration_date: '2020-11-23')
-User.create!(id: 7, branch_id: 2, email: 'user7@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '777-7777', registration_date: '2020-11-23')
-User.create!(id: 8, branch_id: 2, email: 'user8@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '888-8888', registration_date: '2020-11-23')
+#User.create!(id: 5, branch_id: 2, email: 'user5@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '555-5555', registration_date: '2020-11-23')
+#User.create!(id: 6, branch_id: 2, email: 'user6@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '666-6666', registration_date: '2020-11-23')
+#User.create!(id: 7, branch_id: 2, email: 'user7@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '777-7777', registration_date: '2020-11-23')
+#User.create!(id: 8, branch_id: 2, email: 'user8@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '888-8888', registration_date: '2020-11-23')
 
-User.create!(id: 9, branch_id: 3, email: 'user9@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '999-9999', registration_date: '2020-11-23')
-User.create!(id: 10, branch_id: 3, email: 'user10@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '121-1211', registration_date: '2020-11-23')
-User.create!(id: 11, branch_id: 3, email: 'user11@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '333-4444', registration_date: '2020-11-23')
-User.create!(id: 12, branch_id: 3, email: 'user12@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '444-5555', registration_date: '2020-11-23')
+#User.create!(id: 9, branch_id: 3, email: 'user9@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '999-9999', registration_date: '2020-11-23')
+#User.create!(id: 10, branch_id: 3, email: 'user10@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '121-1211', registration_date: '2020-11-23')
+#User.create!(id: 11, branch_id: 3, email: 'user11@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '333-4444', registration_date: '2020-11-23')
+#User.create!(id: 12, branch_id: 3, email: 'user12@jedaeroweb.co.kr', password: 'a12345', password_confirmation: 'a12345', name: '사용자4', phone: '444-5555', registration_date: '2020-11-23')
 
 branch_setting=BranchSetting.find(1)
 branch_setting.user_id = 1

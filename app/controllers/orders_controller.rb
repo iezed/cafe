@@ -106,9 +106,29 @@ class OrdersController < ApplicationController
 
       OrderUser.create!(:order_id => @order.id, :user_id => current_user.id)
 
-      ca = calculate_account(@order.order_products, params[:payment_method])
+      ca = calculate_account(@order.order_products)
       OrderPayment.create!(:order_id => @order.id, :payment_id => params[:payment_method])
+      puts "calculate_account result: #{ca.inspect}"
       @order.update(price: ca[:total_price], payment: ca[:total_price])
+
+      ActionCable.server.broadcast(
+        "admin_orders",
+        {
+          event: "order_created",
+          order_id: @order.id,
+          payment: @order.payment,
+          payment_method: params[:payment_method],
+          transaction_date: I18n.l(
+            @order.transaction_date.to_date,
+            format: :long
+          ),
+          created_at: @order.created_at.strftime("%H:%M"),
+          user_name: current_user.name,
+
+          payments: @order.payments.map(&:title),
+          products: @order.order_products.map { |op| op.product.title }
+        }
+      )
 
       respond_to do |format|
         if result
@@ -129,14 +149,15 @@ class OrdersController < ApplicationController
 
   private
 
-  def calculate_account(s, payment_method)
+  def calculate_account(s)
     a = { total_price: 0 }
     if s.empty?
       return a
     end
 
     s.each do |ss|
-      pp = ss.price * ss.quantity
+      product = Product.find(ss.product.id)
+      pp = product.price * ss.quantity
 
       a[:total_price] += pp
     end

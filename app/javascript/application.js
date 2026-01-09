@@ -11,3 +11,4 @@ window.Modal = bootstrap.Modal;
 
 import 'common'
 import 'index'
+import "channels"

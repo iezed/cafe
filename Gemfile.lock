@@ -157,6 +157,8 @@ GEM
       msgpack (~> 1.2)
     bootstrap (5.3.5)
       popper_js (>= 2.11.8, < 3)
+    bootstrap-icons (1.0.15)
+      nokogiri (~> 1)
     builder (3.3.0)
     cancancan (3.6.1)
     capistrano (3.20.0)
@@ -584,6 +586,7 @@ DEPENDENCIES
   asset_sync
   bootsnap
   bootstrap (~> 5.3)
+  bootstrap-icons
   cancancan
   capistrano
   capistrano-bundler

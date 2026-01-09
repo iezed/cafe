@@ -9,7 +9,7 @@
     </div>
   </div>
   <article class="col-12">
-    <table class="table table-striped table-hover">
+    <table id="orders-table"  class="table table-striped table-hover">
       <colgroup>
         <col>
         <col>
@@ -23,21 +23,22 @@
       </colgroup>
       <thead class="thead-default">
       <tr>
+        <th><%=t(:id,scope:[:activerecord,:attributes,:order]) %></th>
         <th><%=t(:user_id,scope:[:activerecord,:attributes,:order]) %></th>
         <th><%=t(:payment_method) %></th>
         <th><%=t(:title,scope:[:activerecord,:attributes,:product]) %></th>
         <th class="text-right"><%=t(:total_payment,scope:[:activerecord,:attributes,:order]) %></th>
-        <th class="text-right d-none d-sm-table-cell"><%=t(:last_transaction_date,scope:[:activerecord,:attributes,:order]) %></th>
         <th class="text-right d-none d-sm-table-cell"><%=t(:created_at,scope:[:activerecord,:attributes,:order]) %></th>
         <% if can?(:update, Order) || can?(:delete, Order) %>
         <th class="text-center"><%=t(:manage) %></th>
         <% end  %>
       </tr>
       </thead>
-      <tbody>
+      <tbody data-i18n-edit="<%= t(:edit) %>" data-i18n-delete="<%= t(:delete) %>" data-i18n-confirm-delete="<%= t(:delete_confirm) %>">
       <% unless @orders.empty? %>
         <% @orders.each do |order| %>
       <tr>
+        <td><%=order.id %></td>
         <td><%=order.user.name %></td>
         <td>
             <% order.payments.each do |p| %>
@@ -52,18 +53,17 @@
         <td class="text-right"<% unless order.enable %> style="text-decoration:line-through"<% end %>>
           <%=number_to_currency order.payment %>
         </td>
-        <td class="text-right d-none d-sm-table-cell"><%= I18n.l order.transaction_date.to_date, :format => :long %></td>
         <td class="text-right d-none d-sm-table-cell"><%= I18n.l order.created_at.to_datetime, :format => :short %></td>
         <% if can?(:update, order) or can?(:delete, order) %>
           <td class="text-center">
             <% if can? :update, order %>
               <%= link_to edit_admin_order_path(order), :class => "btn btn-secondary" do %>
-                <i class="glyphicon glyphicon-pencil"></i> <%= t(:edit) %>
+                <%= t(:edit) %>
               <% end %>
             <% end %>
             <% if can? :delete, order %>
               <%= link_to admin_order_path(order), :method => :delete, :data => { :confirm => t(:delete_confirm) }, :class => "btn btn-danger" do %>
-                <i class="glyphicon glyphicon-trash"></i> <%= t(:delete) %>
+                <%= t(:delete) %>
               <% end %>
             <% end %>
           </td>
@@ -76,11 +76,6 @@
       </tr>
       <% end  %>
       </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4">asdg</td>
-        </tr>
-      </tfoot>
     </table>
     <%= paginate @orders %>
   </article>
