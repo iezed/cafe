@@ -33,6 +33,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+config/deploy.rb
+lib/tasks/update_admin_account.rake
 
 # SL add
 /public/uploads
