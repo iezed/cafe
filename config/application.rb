@@ -23,7 +23,6 @@ module Cafe
 
     config.i18n.default_locale = :ko
     config.i18n.fallbacks = [:ko]
-
     config.i18n.enforce_available_locales = true
 
     # Configuration for the application, engines, and railties goes here.

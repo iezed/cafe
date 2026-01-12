@@ -37,8 +37,11 @@ function prependOrderRow(order) {
 
     container.prepend(row)
 
+// 1️⃣ 먼저 highlight만
     row.classList.add("fade-highlight")
-    requestAnimationFrame(() => {
+
+// 2️⃣ 브라우저가 한 프레임 그린 뒤 fade-out
+    setTimeout(() => {
         row.classList.add("fade-out")
-    })
+    }, 50)
 }

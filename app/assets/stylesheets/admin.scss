@@ -13,11 +13,11 @@
 
 @charset "utf-8";
 
-@import "bootstrap";
+@use "bootstrap/scss/bootstrap" as *;
 
 @font-face {
   font-family: 'Nanum Gothic';
-  src: local('☺'),url('NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),url('NanumGothic-Regular.woff') format('woff');
+  src: local('☺'),url('../fonts/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),url('../fonts/NanumGothic-Regular.woff') format('woff');
   font-display: swap;
 }
 
@@ -25,7 +25,7 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src:  url('material-icon.woff2') format('woff2');
+  src:  url('../fonts/material-icon.woff2') format('woff2');
 }
 
 .material-icons {
@@ -260,14 +260,12 @@ footer .dropdown {padding-top:12px}
 #sl_order_add .product .product_text .product_description {clear:both}
 #sl_order_add table caption {width:1px;height:1px;text-indent:-9999px}
 
-/* 처음 등장할 때 */
-.fade-highlight {
-  background-color: #fff3cd; /* bootstrap warning 배경 */
+tr.fade-highlight td {
+  background-color: #fff3cd;
   transition: background-color 1.5s ease;
 }
 
-/* 자연스럽게 원래 색으로 */
-.fade-highlight.fade-out {
+tr.fade-highlight.fade-out td {
   background-color: transparent;
 }
 
